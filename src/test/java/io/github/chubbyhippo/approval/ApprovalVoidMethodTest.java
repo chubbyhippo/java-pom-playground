@@ -7,21 +7,21 @@ import org.junit.jupiter.api.Test;
 
 public class ApprovalVoidMethodTest {
 
-  @Test
-  void testVoidMethodOutput() {
-    var outputStream = new ByteArrayOutputStream();
-    var originalOut = System.out;
-    System.setOut(new PrintStream(outputStream));
+    @Test
+    void testVoidMethodOutput() {
+        var outputStream = new ByteArrayOutputStream();
+        var originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
 
-    try {
-      printHello();
-      Approvals.verify(outputStream.toString());
-    } finally {
-      System.setOut(originalOut);
+        try {
+            printHello();
+            Approvals.verify(outputStream.toString());
+        } finally {
+            System.setOut(originalOut);
+        }
     }
-  }
 
-  private void printHello() {
-    IO.println("Hello, Approval Tests!");
-  }
+    private void printHello() {
+        IO.println("Hello, Approval Tests!");
+    }
 }
