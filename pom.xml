@@ -158,12 +158,20 @@
           </markdown>
         </configuration>
         <executions>
-          <execution>
-            <goals>
-              <goal>apply</goal>
-            </goals>
-            <phase>validate</phase>
-          </execution>
+            <execution>
+                <id>spotless-apply-validate</id>
+                <goals>
+                    <goal>apply</goal>
+                </goals>
+                <phase>validate</phase>
+            </execution>
+            <execution>
+                <id>spotless-apply-pre-clean</id>
+                <goals>
+                    <goal>apply</goal>
+                </goals>
+                <phase>pre-clean</phase>
+            </execution>
         </executions>
       </plugin>
     </plugins>
