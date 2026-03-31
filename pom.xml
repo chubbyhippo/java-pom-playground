@@ -141,7 +141,7 @@
         <version>${spotless.version}</version>
         <configuration>
           <java>
-            <googleJavaFormat/>
+            <palantirJavaFormat/>
             <formatAnnotations/>
             <removeUnusedImports/>
             <forbidWildcardImports/>
