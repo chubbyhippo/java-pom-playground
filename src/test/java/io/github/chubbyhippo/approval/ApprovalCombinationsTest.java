@@ -3,7 +3,7 @@ package io.github.chubbyhippo.approval;
 import org.approvaltests.combinations.CombinationApprovals;
 import org.junit.jupiter.api.Test;
 
-public class ApprovalCombinationsTest {
+class ApprovalCombinationsTest {
 
     @Test
     void testCombinations() {
