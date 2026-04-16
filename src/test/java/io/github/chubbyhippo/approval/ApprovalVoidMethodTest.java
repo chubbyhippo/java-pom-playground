@@ -5,7 +5,7 @@ import java.io.PrintStream;
 import org.approvaltests.Approvals;
 import org.junit.jupiter.api.Test;
 
-public class ApprovalVoidMethodTest {
+class ApprovalVoidMethodTest {
 
     @Test
     void testVoidMethodOutput() {
