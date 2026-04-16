@@ -9,7 +9,7 @@ import org.mockito.MockedConstruction;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 
-public class MockitoTest {
+class MockitoTest {
     @Test
     @DisplayName("test mock files.exists")
     void testMockFilesExists() {
