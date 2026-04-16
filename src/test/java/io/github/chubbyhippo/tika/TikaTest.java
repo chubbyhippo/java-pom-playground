@@ -9,7 +9,7 @@ import org.apache.tika.Tika;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class TikaTest {
+class TikaTest {
     @Test
     @DisplayName("test return text/plain mime type from fake pdf file")
     void testReturnTextPlainMimeTypeFromFakePdfFile() {
