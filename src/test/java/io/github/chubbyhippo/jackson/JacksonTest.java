@@ -17,8 +17,7 @@ class JacksonTest {
 
         String json = objectMapper.writeValueAsString(person);
 
-        assertThat(json).contains("John");
-        assertThat(json).contains("30");
+        assertThat(json).contains("John").contains("30");
     }
 
     @Test
