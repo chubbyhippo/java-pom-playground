@@ -7,7 +7,7 @@ import org.instancio.Instancio;
 import org.instancio.Select;
 import org.junit.jupiter.api.Test;
 
-public class InstancioTest {
+class InstancioTest {
 
     record Address(String street, String city) {}
 
