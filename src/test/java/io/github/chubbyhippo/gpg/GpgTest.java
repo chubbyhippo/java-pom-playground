@@ -133,8 +133,8 @@ class GpgTest {
 
             var compressedData = compressedBuffer.toByteArray();
 
-            var encryptedDataGenerator = new PGPEncryptedDataGenerator(
-                    new JcePGPDataEncryptorBuilder(SymmetricKeyAlgorithmTags.AES_256)
+            var encryptedDataGenerator =
+                    new PGPEncryptedDataGenerator(new JcePGPDataEncryptorBuilder(SymmetricKeyAlgorithmTags.AES_256)
                             .setWithIntegrityPacket(true)
                             .setSecureRandom(new SecureRandom())
                             .setProvider("BC"));
@@ -151,15 +151,16 @@ class GpgTest {
     }
 
     private static byte[] decrypt(byte[] encryptedData, PGPSecretKey secretKey, char[] passphrase) throws Exception {
-        PGPObjectFactory factory = new JcaPGPObjectFactory(
-                PGPUtil.getDecoderStream(new ByteArrayInputStream(encryptedData)));
+        PGPObjectFactory factory =
+                new JcaPGPObjectFactory(PGPUtil.getDecoderStream(new ByteArrayInputStream(encryptedData)));
 
         var object = factory.nextObject();
         var encryptedDataList = object instanceof PGPEncryptedDataList
                 ? (PGPEncryptedDataList) object
                 : (PGPEncryptedDataList) factory.nextObject();
 
-        var encryptedPacket = (PGPPublicKeyEncryptedData) encryptedDataList.getEncryptedDataObjects().next();
+        var encryptedPacket = (PGPPublicKeyEncryptedData)
+                encryptedDataList.getEncryptedDataObjects().next();
 
         var decryptor = new JcePBESecretKeyDecryptorBuilder().setProvider("BC").build(passphrase);
 
