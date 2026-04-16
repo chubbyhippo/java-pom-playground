@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.ObjectMapper;
 
-public class JacksonTest {
+class JacksonTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 
