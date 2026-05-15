@@ -1,4 +1,4 @@
-package io.github.chubbyhippo.jackson;
+package io.github.chubbyhippo.json.jackson;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
