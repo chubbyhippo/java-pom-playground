@@ -1,10 +1,6 @@
 package io.github.chubbyhippo.csv;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.CSVRecord;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.io.TempDir;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -12,8 +8,11 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 class CommonsCsvTest {
 
@@ -45,7 +44,7 @@ class CommonsCsvTest {
         var format = CSVFormat.DEFAULT.builder().setHeader(HEADERS).get();
 
         try (Writer writer = Files.newBufferedWriter(file);
-             var printer = new CSVPrinter(writer, format)) {
+                var printer = new CSVPrinter(writer, format)) {
             for (var p : people) {
                 printer.printRecord(p.id(), p.name(), p.email());
             }
@@ -60,20 +59,14 @@ class CommonsCsvTest {
                 .get();
 
         try (Reader reader = Files.newBufferedReader(file);
-             var parser = format.parse(reader)) {
-            return parser.stream()
-                    .map(this::toPerson)
-                    .toList();
+                var parser = format.parse(reader)) {
+            return parser.stream().map(this::toPerson).toList();
         }
     }
 
     private Person toPerson(CSVRecord record) {
-        return new Person(
-                Integer.parseInt(record.get("id")),
-                record.get("name"),
-                record.get("email"));
+        return new Person(Integer.parseInt(record.get("id")), record.get("name"), record.get("email"));
     }
 
-    private record Person(int id, String name, String email) {
-    }
+    private record Person(int id, String name, String email) {}
 }
